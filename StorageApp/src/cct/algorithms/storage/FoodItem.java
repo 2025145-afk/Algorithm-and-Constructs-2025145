@@ -10,12 +10,16 @@ Course:    Higher diploma science Computing — Algorithms & Constructs
 package cct.algorithms.storage;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Set;
+
 /**
  *
  * @author diego
  */
 public class FoodItem {
-    
+    public static final Set<String> ALLOWED =
+     Set.of("Burger", "Pizza", "Fries", "Sandwich", "Hotdog");
+
       public final String name;
     public final int weightGrams;
     public final LocalDate bestBefore;      // hoje + 2 semanas (default)
@@ -23,8 +27,8 @@ public class FoodItem {
 
     public FoodItem(String name, int weightGrams) {
         
-        if (weightGrams <= 0)
-        throw new IllegalArgumentException("Weight must be > 0");
+    if (weightGrams <= 0)
+    throw new IllegalArgumentException("Weight must be > 0");
 
         this.name = name;
         this.weightGrams = weightGrams;
