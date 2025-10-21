@@ -15,28 +15,31 @@ public class App {
     public static void main(String[] args) {
         Storage storage = new Storage();
         System.out.println("Storage started. Mode = " + storage.mode() + " (default: STACK/LIFO)");
-        while (true) {
-            System.out.println("\n--- Storage Menu ---");
-            System.out.println("1) Add item");
-            System.out.println("2) Remove item");
-            System.out.println("3) Show items");
-            System.out.println("4) Exit");
-            System.out.print("Choose: ");
+      while (true) {
+    System.out.println("\n--- Storage Menu ---");
+    System.out.println("1) Add item");
+    System.out.println("2) Remove item");
+    System.out.println("3) Show items");
+    System.out.println("4) Peek next");
+    System.out.println("5) Switch mode (STACK ↔ QUEUE)");
+    System.out.println("6) Exit");
+    System.out.print("Choose: ");
 
-            int op = readInt();
-            switch (op) {
-                case 1 -> addItem(storage);
-                case 2 -> removeItem(storage);
-                case 3 -> showItems(storage);
-                case 4 -> {
-                    System.out.println("Bye!");
-                    return;
-                }
-                default -> System.out.println("Invalid option.");
-            }
+    int op = readInt();
+    switch (op) {
+        case 1 -> addItem(storage);
+        case 2 -> removeItem(storage);
+        case 3 -> showItems(storage);
+        case 4 -> peekItem(storage);       // NEW
+        case 5 -> switchMode(storage);     // NEW
+        case 6 -> {
+            System.out.println("Bye!");
+            return;
         }
+        default -> System.out.println("Invalid option.");
     }
-
+   }
+      
     private static void addItem(Storage storage) {
         try {
             System.out.print("Name (Burger/Pizza/Fries/Sandwich/Hotdog): ");
@@ -77,8 +80,21 @@ public class App {
             System.out.println("  [" + i + "] " + arr[i]);
         }
     }
+    private static void peekItem(Storage storage) {
+    FoodItem p = storage.peek();
+    if (p == null) {
+        System.out.println("Storage is EMPTY.");
+    } else {
+        System.out.println("Next -> " + p);
+    }
+}
 
-    private static int readInt() {
+     private static void switchMode(Storage storage) {
+    storage.switchMode();
+    System.out.println("Mode switched to: " + storage.mode());
+}
+        
+     private static int readInt() {
         while (true) {
             String s = in.nextLine().trim();
             try {
