@@ -21,7 +21,7 @@ public class Storage {
 
     public static final int CAPACITY = 8;
 
-    private final FoodItem[] items = new FoodItem[CAPACITY];
+    private final FoodItemNew[] items = new FoodItemNew[CAPACITY];
     private int n = 0;                 // quantity used 
     private Mode mode = Mode.STACK;    //LIFO
 
@@ -37,24 +37,24 @@ public class Storage {
     }
 
     // add: same for both sides.
-    public boolean add(FoodItem f) {
+    public boolean add(FoodItemNew f) {
         if (isFull()) return false;
         items[n++] = f;
         return true;
     }
 
     // remove: depends of the mode.
-    public FoodItem remove() {
+    public FoodItemNew remove() {
         if (isEmpty()) return null;
 
         if (mode == Mode.STACK) {
             // LIFO
-            FoodItem out = items[n - 1];
+            FoodItemNew out = items[n - 1];
             items[--n] = null;
             return out;
         } else {
             // FIFO: take from the begining and "shift" to the left (O(n))
-            FoodItem out = items[0];
+            FoodItemNew out = items[0];
             System.arraycopy(items, 1, items, 0, n - 1);
             items[--n] = null;
             return out;
@@ -62,14 +62,14 @@ public class Storage {
     }
 
     // peek: take the next without move
-    public FoodItem peek() {
+    public FoodItemNew peek() {
         if (isEmpty()) return null;
         return (mode == Mode.STACK) ? items[n - 1] : items[0];
     }
 
     // snapshot to list
-    public FoodItem[] toArray() {
-        FoodItem[] out = new FoodItem[n];
+    public FoodItemNew[] toArray() {
+        FoodItemNew[] out = new FoodItemNew[n];
         System.arraycopy(items, 0, out, 0, n);
         return out;
     }

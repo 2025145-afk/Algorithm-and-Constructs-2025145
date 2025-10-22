@@ -38,16 +38,6 @@ public class FoodItemNew {
         this(name, weightGrams, LocalDate.now().plusWeeks(2));
     }
 
-    /**
-     * Full constructor with explicit best-before.
-     * Validates all invariants and records a timestamp in placedAt.
-     *
-     * @param name         product name (must be in ALLOWED)
-     * @param weightGrams  strictly > 0
-     * @param bestBefore   must be ≤ (today + 2 weeks)
-     *
-     * @throws IllegalArgumentException if any invariant is violated
-     */
     public FoodItemNew(String name, int weightGrams, LocalDate bestBefore) {
         // ---- Validation: O(1) checks ----
         if (weightGrams <= 0) {

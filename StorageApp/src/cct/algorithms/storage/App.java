@@ -55,8 +55,8 @@ public class App {
             System.out.print("Weight (grams): ");
             int weight = readInt();
 
-            // usa o construtor padrão (bestBefore = hoje + 2 semanas)
-            FoodItem f = new FoodItem(name, weight);
+            // use the default constructor (bestBefore = today + 2 weeks)
+            FoodItemNew f = new FoodItemNew(name, weight);
             if (storage.add(f)) {
                 System.out.println("OK: added -> " + f);
             } else {
@@ -68,7 +68,7 @@ public class App {
       }
 
     private static void removeItem(Storage storage) {
-        FoodItem out = storage.remove();
+        FoodItemNew out = storage.remove();
         if (out == null) {
             System.out.println("Storage is EMPTY.");
         } else {
@@ -77,7 +77,7 @@ public class App {
       }
 
     private static void showItems(Storage storage) {
-        FoodItem[] arr = storage.toArray();
+        FoodItemNew[] arr = storage.toArray();
         if (arr.length == 0) {
             System.out.println("(empty)");
             return;
@@ -88,7 +88,7 @@ public class App {
         }
       }
     private static void peekItem(Storage storage) {
-    FoodItem p = storage.peek();
+    FoodItemNew p = storage.peek();
     if (p == null) {
         System.out.println("Storage is EMPTY.");
     } else {
