@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/*
+ * Algorithms & Constructs – Storage (STACK/QUEUE)
+ * Student: Diego (ID 2025145) – GitHub: 2025145-afk
+ * Repo: Algorithm-and-Constructs-2025145 (branch main)
+ * Description: CLI to add/remove/show/peek FoodItem with fixed capacity (8) and modes STACK/LIFO or QUEUE/FIFO.
+ * Date: <put today’s date>
+ */
 package cct.algorithms.storage;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -37,9 +44,9 @@ public class App {
             return;
         }
         default -> System.out.println("Invalid option.");
-    }
-   }
-      
+        }
+      }
+    } 
     private static void addItem(Storage storage) {
         try {
             System.out.print("Name (Burger/Pizza/Fries/Sandwich/Hotdog): ");
@@ -58,7 +65,7 @@ public class App {
         } catch (IllegalArgumentException ex) {
             System.out.println("Validation error: " + ex.getMessage());
         }
-    }
+      }
 
     private static void removeItem(Storage storage) {
         FoodItem out = storage.remove();
@@ -67,7 +74,7 @@ public class App {
         } else {
             System.out.println("Removed -> " + out);
         }
-    }
+      }
 
     private static void showItems(Storage storage) {
         FoodItem[] arr = storage.toArray();
@@ -79,7 +86,7 @@ public class App {
         for (int i = 0; i < arr.length; i++) {
             System.out.println("  [" + i + "] " + arr[i]);
         }
-    }
+      }
     private static void peekItem(Storage storage) {
     FoodItem p = storage.peek();
     if (p == null) {

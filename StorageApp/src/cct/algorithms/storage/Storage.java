@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/*
+ * Algorithms & Constructs – Storage (STACK/QUEUE)
+ * Student: Diego (ID 2025145) – GitHub: 2025145-afk
+ * Repo: Algorithm-and-Constructs-2025145 (branch main)
+ * Description: CLI to add/remove/show/peek FoodItem with fixed capacity (8) and modes STACK/LIFO or QUEUE/FIFO.
+ * Date: <put today’s date>
+ */
 package cct.algorithms.storage;
 
 /**
